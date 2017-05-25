@@ -6,6 +6,8 @@ var lettersGuessed;
 var word;
 var userInput;
 
+var regex= /^[A-Za-z]$/;
+
 	function startGame(){
 
 		//Display wins on the page
@@ -17,7 +19,7 @@ var userInput;
 
 
 		//words that will be used in the game
-		wordArray=["react", "nodejs", "html", "css", "javascript"];
+		wordArray=["react", "nodejs", "html", "css", "javascript", "object", "express", "framework"];
 
 		//make blankWord an array
 		blankWord=[];
@@ -49,34 +51,48 @@ startGame();
 	document.onkeyup=function(event){
 
 		userInput= event.key;
-		checkLetter(word, blankWord, userInput, lettersGuessed);
 
-		console.log(guessesRemaining);
+		if(regex.test(userInput)){
+			checkLetter(word, blankWord, userInput, lettersGuessed);
 
-		if(guessesRemaining==0){
-			console.log("You loose the game!")
-			
-			console.log("Wins: " + wins);
 			console.log(guessesRemaining);
 
-			startGame();
-		}
+			// make a function out of this
+			if(guessesRemaining==0){
+				console.log("You loose the game!")
+				
+				console.log("Wins: " + wins);
+				console.log(guessesRemaining);
 
-		if(blankWord.join("")== word){
-			console.log("You win the game");
+				document.getElementById("blankWord").innerHTML="<p> You Lose!!</p>";
+
+				setTimeout(function(){
+					startGame();
+				}, 1500);
+			}	
+
+			// make a function out of this?
+			if(blankWord.join("")== word){
+				console.log("You win the game");
+				
+				wins++;
+				console.log("Wins: " + wins);
+				console.log(guessesRemaining);
+
+				document.getElementById("blankWord").innerHTML="<p> You Win!!</p>";
+
+				setTimeout(function(){
+					startGame();
+				}, 1500);
+			}
 			
-			wins++;
-			console.log("Wins: " + wins);
-			console.log(guessesRemaining);
-
-			startGame();
 		}
 	}
 
 
-
 	//check if the letter guessed matches any letter in the array
 	function checkLetter(word, blankWord, letter, lettersGuessed){
+
 		for(var i=0; i<word.length; i++){
 			if(word.charAt(i)==letter.toLowerCase()){
 				blankWord[i]=letter.toLowerCase();
@@ -85,6 +101,7 @@ startGame();
 			document.getElementById("blankWord").innerHTML=blankWord.join("");
 		}
 
+		//check if letter guessed has already been guessed
 		if(lettersGuessed.indexOf(letter)===-1){
 			guessesRemaining--;
 			lettersGuessed.push(letter);

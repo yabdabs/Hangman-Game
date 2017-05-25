@@ -3,20 +3,74 @@
 <head>
 	<title></title>
 
-	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		
+		<script
+		  src="https://code.jquery.com/jquery-3.2.1.js"
+		  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+		  crossorigin="anonymous">
+		  </script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 <body>
+
+<div class= "container">
+	<div class="jumbotron">
+		<h1>Welcome to Hangman!<span class="glyphicon glyphicon-user" aria-hidden="true"></span></h1>
+		<h3>Press any key to get started. Words are related to Web Development!</h3>
+		<p><a class="btn btn-primary btn-lg" href="https://en.wikipedia.org/wiki/Hangman_(game)" role="button">Learn more</a></p>
+	</div>
 	
-	<h2>Press any key to get started</h2>
+	<div class="row">
+		<div class="col-xs-2">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Wins</h3>
+				</div>
+				<div class="panel-body">
+					<div id="wins"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-7">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Blank Word</h3>
+				</div>
+				<div class="panel-body">
+					<div id="blankWord"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-3">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Guesses Remaining & Letters Guessed</h3>
+				</div>
+				<div class="panel-body">
+					<div id="guessesRemaining"></div>
+					<div id="lettersGuessed"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		
+
 	
-	<div id="wins"></div>
+		
+		<script type="text/javascript" src="assets/javascript/game.js"></script>
+</div>
 
-	<div id="blankWord"></div>
-
-	<div id="guessesRemaining"></div>
-
-	<div id="lettersGuessed"></div>
-
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>
